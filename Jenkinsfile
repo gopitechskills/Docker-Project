@@ -1,8 +1,8 @@
 pipeline {
 
   environment {
-    registry = "docker.io/cubensquare/flask"
-    registry_mysql = "docker.io/cubensquare/mysql"
+    registry = "docker.io/gopitechskills/flask"
+    registry_mysql = "docker.io/gopitechskills/mysql"
     dockerImage = ""
   }
 
@@ -11,7 +11,7 @@ pipeline {
   
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/mgsgoms/Docker-Project.git'
+        git 'https://github.com/gopitechskills/Docker-Project.git'
       }
     }
 
@@ -42,8 +42,8 @@ pipeline {
    }
    stage('Build mysql image') {
      steps{
-       sh 'docker build -t "docker.io/cubensquare/mysql:$BUILD_NUMBER"  "$WORKSPACE"/mysql'
-        sh 'docker push "docker.io/cubensquare/mysql:$BUILD_NUMBER"'
+       sh 'docker build -t "docker.io/gopitechskills/mysql:$BUILD_NUMBER"  "$WORKSPACE"/mysql'
+        sh 'docker push "docker.io/gopitechskills/mysql:$BUILD_NUMBER"'
         }
       }
     stage('Deploy App') {
