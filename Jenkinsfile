@@ -8,20 +8,6 @@ pipeline {
 
   agent any
     stages {
-
-    stage('Check Docker on Jenkins') {
-      steps {
-        script {
-          try {
-            sh 'docker --version'
-            echo "Docker is installed on Jenkins server."
-          } catch (Exception e) {
-            echo "Docker is not installed on Jenkins server."
-            error("Docker installation is required on Jenkins server.")
-          }
-        }
-      }
-    }
   
     stage('Checkout Source') {
       steps {
